@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Chat{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Conversations</h1>
+    <a href="{% url 'start_conversation' %}" class="button primary">New chat</a>
+</div>
+
+<div class="card-list">
+    {% for conversation in conversations %}
+    <div class="card list-card">
+        <a href="{% url 'conversation_detail' conversation.id %}"><h3>{{ conversation.title }}</h3></a>
+        <p>{{ conversation.messages.count }} messages</p>
+        <p>{{ conversation.updated_at|date:'M d, Y H:i' }}</p>
+    </div>
+    {% empty %}
+    <div class="card">
+        <p>No conversations yet. Start a new conversation to ask questions.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

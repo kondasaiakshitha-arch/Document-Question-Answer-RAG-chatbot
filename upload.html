@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Upload document{% endblock %}
+
+{% block content %}
+<div class="panel">
+    <h1>Upload document</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="field">
+            <label for="title">Document title</label>
+            <input type="text" name="title" id="title" placeholder="Optional title">
+        </div>
+        <div class="field">
+            <label for="file">File</label>
+            <input type="file" name="file" id="file" required accept=".pdf,.docx,.txt">
+        </div>
+        <button type="submit" class="button primary">Upload and index</button>
+    </form>
+</div>
+{% endblock %}

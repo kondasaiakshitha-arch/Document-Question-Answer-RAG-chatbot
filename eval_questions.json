@@ -1,0 +1,86 @@
+[
+  {
+    "question": "In which college did Poojitha Veni study?",
+    "expected_answer": "GUDIPATI Engineering College",
+    "document": "resume",
+    "trap": false
+  },
+  {
+    "question": "Which course did Poojitha Veni complete?",
+    "expected_answer": "B.Tech in Computer Science and Engineering",
+    "document": "resume",
+    "trap": false
+  },
+  {
+    "question": "What projects did Poojitha Veni work on?",
+    "expected_answer": "Food delivery model, demand forecasting model, and a security-focused application project",
+    "document": "resume",
+    "trap": false
+  },
+  {
+    "question": "What is the food delivery model mentioned in the document?",
+    "expected_answer": "A food delivery model project similar to a delivery platform",
+    "document": "food",
+    "trap": false
+  },
+  {
+    "question": "What is the total number of food orders?",
+    "expected_answer": "79,992 food orders",
+    "document": "food",
+    "trap": false
+  },
+  {
+    "question": "Which area had the highest demand?",
+    "expected_answer": "The area with the highest demand according to the report",
+    "document": "food",
+    "trap": false
+  },
+  {
+    "question": "What is the name of the college in the resume?",
+    "expected_answer": "GUDIPATI Engineering College",
+    "document": "resume",
+    "trap": false
+  },
+  {
+    "question": "What does the resume say about Poojitha Veni's degree?",
+    "expected_answer": "She completed B.Tech in Computer Science and Engineering",
+    "document": "resume",
+    "trap": false
+  },
+  {
+    "question": "Which technology is used in the food delivery model?",
+    "expected_answer": "The project uses machine learning and data-driven demand forecasting",
+    "document": "food",
+    "trap": false
+  },
+  {
+    "question": "Is there a mention of a PhD in the uploaded documents?",
+    "expected_answer": "I couldn't find this in the uploaded documents.",
+    "document": "resume",
+    "trap": true
+  },
+  {
+    "question": "Did the documents mention an internship at Google?",
+    "expected_answer": "I couldn't find this in the uploaded documents.",
+    "document": "resume",
+    "trap": true
+  },
+  {
+    "question": "What is the exact salary mentioned in the resume?",
+    "expected_answer": "I couldn't find this in the uploaded documents.",
+    "document": "resume",
+    "trap": true
+  },
+  {
+    "question": "How many pages are in the resume?",
+    "expected_answer": "I couldn't find this in the uploaded documents.",
+    "document": "resume",
+    "trap": true
+  },
+  {
+    "question": "What was the forecast for 2028?",
+    "expected_answer": "I couldn't find this in the uploaded documents.",
+    "document": "food",
+    "trap": true
+  }
+]

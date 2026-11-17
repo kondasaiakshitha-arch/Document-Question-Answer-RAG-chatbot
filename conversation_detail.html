@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Conversation{% endblock %}
+
+{% block content %}
+<div class="chat-layout">
+    <aside class="sidebar">
+        <h3>Documents</h3>
+        <form method="post" action="{% url 'ask_question' conversation.id %}">
+            {% csrf_token %}
+            <ul class="document-selector">
+                {% for document in documents %}
+                <li>
+                    <label>
+                        <input type="checkbox" name="document_ids" value="{{ document.id }}" checked>
+                        {{ document.title }}
+                    </label>
+                </li>
+                {% empty %}
+                <li>No indexed documents yet.</li>
+                {% endfor %}
+            </ul>
+            <textarea name="question" rows="4" placeholder="Ask a question about the selected document(s)"></textarea>
+            <button type="submit" class="button primary">Ask</button>
+        </form>
+    </aside>
+
+    <section class="chat-panel">
+        <h2>{{ conversation.title }}</h2>
+        <div class="message-list">
+            {% for message in messages %}
+            <div class="message message-{{ message.role }}">
+                <div class="role">{{ message.role|title }}</div>
+                <div class="content">
+                    {% if message.role == 'assistant' and message.sources %}
+                        <div class="matched-sentence">
+                            <strong>Matched passage:</strong>
+                            {{ message.sources.0.snippet }}
+                        </div>
+                    {% endif %}
+                    {{ message.content }}
+                </div>
+                {% if message.sources %}
+                <div class="sources">
+                    <strong>Citations:</strong>
+                    {% for source in message.sources %}
+                    <div class="source-item">
+                        <div><strong>{{ source.document }}</strong> · Page {{ source.page }}</div>
+                        <div class="source-snippet">{{ source.snippet }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            {% empty %}
+            <div class="card">
+                <p>Ask the first question to begin the conversation.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}

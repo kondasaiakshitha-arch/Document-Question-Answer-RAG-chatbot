@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Evaluation{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Evaluation dashboard</h1>
+</div>
+
+<section class="grid two-up">
+    <div class="card metric-card">
+        <h3>Retrieval accuracy</h3>
+        <p class="metric">{{ retrieval_accuracy }}%</p>
+    </div>
+    <div class="card metric-card">
+        <h3>Answer faithfulness</h3>
+        <p class="metric">{{ answer_faithfulness }}%</p>
+    </div>
+</section>
+
+<div class="card">
+    <h3>Test questions</h3>
+    {% if questions %}
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Document</th>
+                <th>Question</th>
+                <th>Expected answer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question in questions %}
+            <tr>
+                <td>{{ question.document.title }}</td>
+                <td>{{ question.question }}</td>
+                <td>{{ question.expected_answer }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No evaluation questions have been created yet.</p>
+    {% endif %}
+</div>
+{% endblock %}
